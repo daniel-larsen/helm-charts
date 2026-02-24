@@ -2,7 +2,7 @@
 
 Chart for The Open Source Inventory and PLM Solution
 
-[Helm](https://helm.sh/docs)) must be installed to use this chart.
+[Helm](https://helm.sh/docs) must be installed to use this chart.
 
 Add the repo as follows:
 
