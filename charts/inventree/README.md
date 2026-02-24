@@ -6,7 +6,7 @@ Chart for The Open Source Inventory and PLM Solution
 
 Add the repo as follows:
 
-  helm repo add inventree https://inventree.github.io/helm-chart
+    helm repo add inventree https://inventree.github.io/helm-charts
 
 To install the inventree chart:
 
