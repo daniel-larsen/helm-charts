@@ -2,11 +2,11 @@
 
 Chart for The Open Source Inventory and PLM Solution
 
-[Helm](https://helm.sh/docs)) must be installed to use this chart.
+[Helm](https://helm.sh/docs) must be installed to use this chart.
 
 Add the repo as follows:
 
-  helm repo add inventree https://inventree.github.io/helm-chart
+    helm repo add inventree https://inventree.github.io/helm-charts
 
 To install the inventree chart:
 
