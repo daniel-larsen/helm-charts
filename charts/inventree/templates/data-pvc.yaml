@@ -1,10 +1,17 @@
+{{- if and .Values.persistence.enabled (not .Values.persistence.existingClaim) }}
 apiVersion: v1
 kind: PersistentVolumeClaim
-metadata:        
+metadata:
   name: inventree-data
-spec:  
+  {{- with .Values.persistence.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
   accessModes:
-    - ReadWriteOnce
+    - {{ .Values.persistence.accessMode }}
+  storageClassName: {{ .Values.persistence.storageClass | quote }}
   resources:
     requests:
-      storage: 8Gi
+      storage: {{ .Values.persistence.size }}
+{{- end }}

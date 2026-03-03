@@ -296,3 +296,19 @@ worker:
     type: ClusterIP
     # This sets the ports more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#field-spec-ports
     port: 8000
+
+persistence:
+  ## @param persistence.enabled Enable persistent storage
+  enabled: true
+  ## @param persistence.storageClass Storage class to use for persistent volume
+  storageClass: ""
+  ## @param persistence.accessMode Access mode for persistent volume
+  accessMode: ReadWriteOnce
+  ## @param persistence.size Size of persistent volume
+  size: 2Gi
+  ## @param persistence.mountPath Mount path for inventree data
+  mountPath: /home/inventree/data
+  ## @param persistence.annotations Annotations for persistent volume claims
+  annotations: {}
+  ## @param persistence.existingClaim The name of an existing PVC to use for persistence
+  existingClaim: ""
