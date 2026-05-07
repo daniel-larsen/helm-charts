@@ -17,7 +17,7 @@ data:
         listen 80 deferred;
         client_max_body_size 4G;
     
-        server_name {{ (include "ingress.listServers" (dict "data" . )) }};
+        server_name {{ include "ingress.listServers" (dict "data" .) | default (trimPrefix "https://" (trimPrefix "http://" .Values.global.siteUrl)) }};
     
         keepalive_timeout 5;
     
