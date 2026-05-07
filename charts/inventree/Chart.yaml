@@ -12,7 +12,7 @@ icon: https://raw.githubusercontent.com/inventree/InvenTree/refs/heads/master/as
 type: application
 
 # Version info - CHANGEME
-version: 0.4.12
+version: 0.4.13
 appVersion: "1.3.2"
 
 # Artifacthub annotations
