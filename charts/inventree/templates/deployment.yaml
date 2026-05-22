@@ -33,14 +33,21 @@ spec:
             - >
               invoke migrate &&
               invoke static
-          {{- if .Values.persistence.enabled }}
           volumeMounts:
+            {{- if .Values.persistence.enabled }}
             - name: inventree-data
               mountPath: {{ .Values.persistence.mountPath }}
+            {{- end }}
+          {{- with .Values.volumeMounts }}
+            {{- toYaml . | nindent 12 }}
           {{- end }}
           env:
             - name: INVENTREE_SITE_URL
               value: {{ .Values.global.siteUrl }}
+            {{- range $key, $value := .Values.env }}
+            - name: {{ $key }}
+              value: {{ $value | quote }}
+            {{- end }}    
           {{- (include "inventree.renderSecrets" (dict "data" .Values.global.dbSecrets)) | nindent 10 -}}
       {{- end -}}
       {{- with .Values.imagePullSecrets }}
